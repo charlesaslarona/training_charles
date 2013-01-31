@@ -1,0 +1,6 @@
+<widget>
+  <widgetClass>tooltwist.training_charles.widgets.PersonListWidget</widgetClass>
+  <idWithinRootWidget>0</idWithinRootWidget>
+  <label>Person List</label>
+  <description>Person List Widget</description>
+</widget>

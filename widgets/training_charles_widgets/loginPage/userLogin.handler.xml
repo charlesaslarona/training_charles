@@ -1,0 +1,4 @@
+<requestHandler>
+	<class>tooltwist.training_charles.requestHandlers.UserLoginRequestHandler</class>
+	<description>User Login</description>
+</requestHandler>

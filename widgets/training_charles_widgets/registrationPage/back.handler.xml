@@ -1,0 +1,4 @@
+<requestHandler>
+	<class>tooltwist.training_charles.requestHandlers.BackRequestHandler</class>
+	<description>Back Request Handler</description>
+</requestHandler>

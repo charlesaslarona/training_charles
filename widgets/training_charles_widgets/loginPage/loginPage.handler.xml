@@ -1,0 +1,4 @@
+<requestHandler>
+<class>tooltwist.training_charles.requesthandlers.UserLoginRequestHandler.java</class>
+    <description>Login page</description>
+</requestHandler>

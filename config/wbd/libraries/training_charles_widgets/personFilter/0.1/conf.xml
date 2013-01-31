@@ -1,0 +1,6 @@
+<widget>
+  <widgetClass>tooltwist.training_charles.widgets.PersonFilterWidget</widgetClass>
+  <idWithinRootWidget>0</idWithinRootWidget>
+  <label>Person Filter</label>
+  <description>Filter widget for person</description>
+</widget>
