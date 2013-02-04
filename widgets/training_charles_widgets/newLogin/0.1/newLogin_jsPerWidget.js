@@ -27,7 +27,8 @@ var NewLogin = function() {
 							redirectPage(editOp);
 						}
 						else {
-							alert("username or password is incorrect")
+							alert("username or password is incorrect");
+							clearData();
 						}
 				 },
 				 error: function(data){
@@ -37,9 +38,14 @@ var NewLogin = function() {
 			 });
 			});
 			
+			function clearData(){
+				jQuery("#uName").empty();
+				jQuery("#pWord").empty();				
+			}
+			
 			function redirectPage(editPage)
 			{
-				alert("you will be redirected" + editPage);
+				window.location.href = editPage;
 			}
 			
 		},

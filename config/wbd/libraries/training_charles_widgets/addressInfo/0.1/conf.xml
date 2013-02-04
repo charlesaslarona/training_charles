@@ -1,0 +1,6 @@
+<widget>
+  <widgetClass>tooltwist.training_charles.widgets.AddressInfoWidget</widgetClass>
+  <idWithinRootWidget>0</idWithinRootWidget>
+  <label>Address Information</label>
+  <description>Address Information</description>
+</widget>

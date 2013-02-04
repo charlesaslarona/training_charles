@@ -1,0 +1,6 @@
+<widget>
+  <widgetClass>tooltwist.training_charles.widgets.EditPageWidget</widgetClass>
+  <idWithinRootWidget>0</idWithinRootWidget>
+  <label>Edit Page</label>
+  <description>Edit Form</description>
+</widget>

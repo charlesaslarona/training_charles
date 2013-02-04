@@ -34,6 +34,7 @@
 				<th>First name</th>
 				<th>Middle Name</th>
 				<th>Last Name</th>
+				<th>E-Mail</th>
 
 			</tr>
 			<%
@@ -42,12 +43,12 @@
 			%>
 
 			<tr>
-				<td><a
-					href="%%registrationPage%%?personId=<%=nodes.getText("personId")%>"><%=nodes.getText("personId")%></a></td>
-				<td><a href="%%registrationPage%%"><%=nodes.getText("userName")%></a></td>
-				<td><a href="%%registrationPage%%"><%=nodes.getText("firstName")%></ta></td>
-				<td><a href="%%registrationPage%%"><%=nodes.getText("middleName")%></a></td>
-				<td><a href="%%registrationPage%%"><%=nodes.getText("lastName")%></a></td>
+				<td><a shref="%%registrationPage%%?personId=<%=nodes.getText("personId")%>"><%=nodes.getText("personId")%></a></td>
+				<td><a href="%%registrationPage%%?personId=<%=nodes.getText("personId") %>"><%=nodes.getText("userName")%></a></td>
+				<td><a href="%%registrationPage%%?personId=<%=nodes.getText("personId")%>"><%=nodes.getText("firstName")%></a></td>
+				<td><a href="%%registrationPage%%?personId=<%=nodes.getText("personId")%>"><%=nodes.getText("middleName")%></a></td>
+				<td><a href="%%registrationPage%%?personId=<%=nodes.getText("personId")%>"><%=nodes.getText("lastName")%></a></td>
+				<td><a href="%%registrationPage%%?personId=<%=nodes.getText("personId")%>"><%=nodes.getText("email")%></a></td>
 			</tr>
 			<%
 				}

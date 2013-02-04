@@ -20,17 +20,23 @@ import com.dinaa.ui.UimData;
 import com.dinaa.xpc.Xpc;
 import com.dinaa.xpc.XpcSecurity;
 
-public class RegistrationPageProductionHelper extends WbdProductionHelper
+public class EditPageProductionHelper extends WbdProductionHelper
 {
-
+	private static String AUTO_URL_PARAMETER_NAME = "myParam";
+	private XData data = null;
+	private String myValue;
+	private String myAutoUrlParameter;
+	
 	private String personId;
 	private String userName;
 	private String firstName;
 	private String middleName;
 	private String lastName;
 	private String email;
+	private String password;
+	
 
-	public RegistrationPageProductionHelper(Properties prop)
+	public EditPageProductionHelper(Properties prop)
 	{
 		super(prop);
 	}
@@ -39,6 +45,7 @@ public class RegistrationPageProductionHelper extends WbdProductionHelper
 	public XData preFetch(UimData ud) throws Exception
 	{
 		XpcSecurity credentials = ud.getCredentials();
+		
 		HttpServletRequest request = ((JspHelper)ud).getRequest();
 		String personId = request.getParameter("personId");
 		
@@ -46,28 +53,25 @@ public class RegistrationPageProductionHelper extends WbdProductionHelper
 		xpc.start("phinza.D.person", "select");
 		xpc.attrib("personId", personId);
 		XData data = xpc.run();
-		
+				
 		XNodes nodes = data.getNodes("/select/person");
 		nodes.next();
-		
 		setPersonId(nodes.getText("personId"));
 		setUserName(nodes.getText("userName"));
 		setFirstName(nodes.getText("firstName"));
 		setMiddleName(nodes.getText("middleName"));
 		setLastName(nodes.getText("lastName"));
-		setEmai(nodes.getText("email"));
-	  
+		setEmail(nodes.getText("email"));
+
 		return null;
 	}
-	
-	
-	
+
+	public String getPersonId() {
+		return personId;
+	}
+
 	public void setPersonId(String personId) {
 		this.personId = personId;
-	}
-	
-	public String getPersonId() {
-		return this.personId;
 	}
 
 	public String getUserName() {
@@ -101,13 +105,21 @@ public class RegistrationPageProductionHelper extends WbdProductionHelper
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
-	public void setEmai(String email){
-		this.email = email;
-	}
-	
+
 	public String getEmail() {
 		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 //	private String dummyData()

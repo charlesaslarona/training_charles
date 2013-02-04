@@ -1,0 +1,4 @@
+<requestHandler>
+	<class>tooltwist.training_charles.requestHandlers.EditAddressRequestHandler</class>
+	<description>Edit Address Handler</description>
+</requestHandler>

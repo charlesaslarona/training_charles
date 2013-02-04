@@ -1,0 +1,4 @@
+<requestHandler>
+	<class>tooltwist.training_charles.requestHandlers.PreviousRequestHandler</class>
+	<description>previous page handler</description>
+</requestHandler>

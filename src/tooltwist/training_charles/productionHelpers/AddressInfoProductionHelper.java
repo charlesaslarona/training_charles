@@ -20,17 +20,18 @@ import com.dinaa.ui.UimData;
 import com.dinaa.xpc.Xpc;
 import com.dinaa.xpc.XpcSecurity;
 
-public class RegistrationPageProductionHelper extends WbdProductionHelper
+public class AddressInfoProductionHelper extends WbdProductionHelper
 {
+	private static String AUTO_URL_PARAMETER_NAME = "myParam";
+	private XData data = null;
+	private String myValue;
+	private String myAutoUrlParameter;
+	
+	public String addressType;
+	public String address;
+	public String personId;
 
-	private String personId;
-	private String userName;
-	private String firstName;
-	private String middleName;
-	private String lastName;
-	private String email;
-
-	public RegistrationPageProductionHelper(Properties prop)
+	public AddressInfoProductionHelper(Properties prop)
 	{
 		super(prop);
 	}
@@ -39,77 +40,51 @@ public class RegistrationPageProductionHelper extends WbdProductionHelper
 	public XData preFetch(UimData ud) throws Exception
 	{
 		XpcSecurity credentials = ud.getCredentials();
+		
+		
 		HttpServletRequest request = ((JspHelper)ud).getRequest();
+		String addressId = request.getParameter("personId");
 		String personId = request.getParameter("personId");
 		
 		Xpc xpc = ud.getXpc();
-		xpc.start("phinza.D.person", "select");
-		xpc.attrib("personId", personId);
+		xpc.start("phinza.D.address", "select");
+		xpc.attrib("addressId", addressId);
 		XData data = xpc.run();
-		
-		XNodes nodes = data.getNodes("/select/person");
+				
+		XNodes nodes = data.getNodes("/select/address");
 		nodes.next();
-		
-		setPersonId(nodes.getText("personId"));
-		setUserName(nodes.getText("userName"));
-		setFirstName(nodes.getText("firstName"));
-		setMiddleName(nodes.getText("middleName"));
-		setLastName(nodes.getText("lastName"));
-		setEmai(nodes.getText("email"));
-	  
+
+		setAddress(nodes.getText("address"));
+        setAddressType(nodes.getText("addressType"));
+        setPersonId(nodes.getText("personId"));
+
 		return null;
 	}
 	
+	public String getPersonId(){
+		return personId;
+	}
 	
-	
-	public void setPersonId(String personId) {
+	public void setPersonId(String personId){
 		this.personId = personId;
 	}
-	
-	public String getPersonId() {
-		return this.personId;
-	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public String getAddress() {
+		return address;
 	}
 	
-	public void setEmai(String email){
-		this.email = email;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	
-	public String getEmail() {
-		return email;
+	public String getAddressType() {
+		return addressType;
 	}
-
+	
+	public void setAddressType(String addressType) {
+		this.addressType = addressType;
+	}
+	
 //	private String dummyData()
 //	{
 //		return ""
