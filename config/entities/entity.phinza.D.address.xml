@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<entity>
+    <tableName>address</tableName>
+    <attribute>
+        <name>address</name>
+        <sequence>3</sequence>
+        <columnLength>50</columnLength>
+        <description>address info</description>
+        <typeScopeType>P</typeScopeType>
+        <typeAttribute>VARCHAR</typeAttribute>
+    </attribute>
+    <attribute>
+        <name>addressId</name>
+        <sequence>0</sequence>
+        <uniqueKey>Y</uniqueKey>
+        <primaryKey>Y</primaryKey>
+        <databaseColumn>addressId</databaseColumn>
+        <typeScopeType>P</typeScopeType>
+        <typeAttribute>IDENTITY</typeAttribute>
+    </attribute>
+    <attribute>
+        <name>addressType</name>
+        <sequence>2</sequence>
+        <columnLength>20</columnLength>
+        <typeScopeType>P</typeScopeType>
+        <typeAttribute>VARCHAR</typeAttribute>
+    </attribute>
+    <attribute>
+        <name>personId</name>
+        <sequence>1</sequence>
+        <primaryKey>N</primaryKey>
+        <linkedEntity>person</linkedEntity>
+        <typeScopeType>P</typeScopeType>
+        <typeAttribute>IDENTITY</typeAttribute>
+    </attribute>
+</entity>
