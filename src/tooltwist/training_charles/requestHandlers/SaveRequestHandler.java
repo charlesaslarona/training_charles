@@ -36,15 +36,17 @@ public class SaveRequestHandler extends WbdRequestHandler
 	public boolean handler(UimHelper uh, String widgetId, String method) throws UiModuleException, ServletException, IOException, XpcException
 	{
        HttpServletRequest request = uh.getRequest();
-       String personId = request.getParameter("personId");
+       //String personId = request.getParameter("personId");
        String firstName = request.getParameter("firstName");
        String middleName = request.getParameter("middleName");
        String lastName =  request.getParameter("lastName");
        String userName = request.getParameter("userName");
        String passWord =  request.getParameter("passWord");
+       String email = request.getParameter("email");
        
-       boolean hasUserName = hasUserName(uh, userName, personId);
+      // boolean hasUserName = hasUserName(uh, userName, personId);
        
+       /*
        if(hasUserName) {
     	   uh.reply("false");
     	   /*
@@ -52,19 +54,18 @@ public class SaveRequestHandler extends WbdRequestHandler
     	   response.setContentType("application/json");
     	   PrintWriter writer = response.getWriter();
     	   writer.print("{\"status\": \"true\"}");
-    	   uh.reply("{status:false, message:\"Username already exists!\"}","application/json");*/
-       }
-       else
-       {
+    	   uh.reply("{status:false, message:\"Username already exists!\"}","application/json");
+       */
 			try {
 
 				Xpc xpc = uh.getXpc();
-				xpc.start("phinza.D.person", "update");
-				xpc.attrib("personId", personId);
+				xpc.start("phinza.D.person", "insert");
+				xpc.attrib("password", passWord);
 				xpc.attrib("firstName", firstName);
 				xpc.attrib("middleName", middleName);
 				xpc.attrib("lastName", lastName);
 				xpc.attrib("userName", userName);
+				xpc.attrib("email", email);
 
 				xpc.run();
 				uh.reply("true");
@@ -72,13 +73,13 @@ public class SaveRequestHandler extends WbdRequestHandler
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
-		}
+	
 
 		return true;
 	}
 	
 	private boolean hasUserName(UimHelper uh, String userName, String personId){
-		
+		/*
 		try {
 			String whereClause = "" +
 					"<whereClause>" +
@@ -107,6 +108,7 @@ public class SaveRequestHandler extends WbdRequestHandler
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		*/
 		return false;
 	}
 	}

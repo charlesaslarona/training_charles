@@ -33,17 +33,18 @@ public class EditAddressRequestHandler extends WbdRequestHandler
 		HttpServletRequest request = uh.getRequest();
 		String addressType = request.getParameter("addressType");
 		String address = request.getParameter("address");
+		String addressId = request.getParameter("addressId");
 		
 		try {
 			Xpc xpc = uh.getXpc();
-			xpc.start("phinza.D.update", "update");
+			xpc.start("phinza.D.address", "update");
+			xpc.attrib("addressId", addressId);
 			xpc.attrib("addressType", addressType);
 			xpc.attrib("address", address);
 			xpc.run();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-
 		
 		
 		return true;

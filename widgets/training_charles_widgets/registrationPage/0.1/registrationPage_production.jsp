@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title></title>
@@ -24,16 +25,17 @@
 
 <!-- ********** INSERT HTML HERE ********** -->
 <div %%idDefinition%% class="RegistrationPage">
-<form method="POST" action="">
+<form method="POST">
 <input type="hidden" name="backNavPoint" value="%%previousPage%%">
 <input type="hidden" name="op" value="training_charles_widgets.registrationPage.back">
 <input type="hidden" name = "saveOp" id="saveOp" value="training_charles_widgets.registrationPage.save">
-Person ID: <input type="text" id="personId" value="<%=h.getPersonId() %>" name="personId" class="textbox"/><br>
-First Name: <input type="text" id="firstName" value="<%=h.getFirstName() %>"  name="firstName" /><br>
-Middle Name: <input type="text" id="middleName"  value="<%=h.getMiddleName()  %>"  name="middleName" /><br>
-Last Name:  <input type="text" id="lastName"  value="<%=h.getLastName() %>" name="lastName"/><br>
-User Name: <input type="text" id="userName" value="<%=h.getUserName() %>"  name="userName"/><br>
-Password: <input type="password" id="passWord" value="<%= %>" name="passWord" /> <br>
+First Name: <input type="text" id="firstName"  name="firstName" autocomplete="off" required/><br>
+Middle Name: <input type="text" id="middleName"  name="middleName" autocomplete="off" required/><br>
+Last Name:  <input type="text" id="lastName" name="lastName" autocomplete="off" required/><br>
+Email: <input type="email" id="email" name="email" autocomplete="off" required/> <br>
+User Name: <input type="text" id="userName" value=""  name="userName" autocomplete="off" required/><br>
+Password: <input type="password" id="passWord" value="" name="passWord" autocomplete="off"/> <br>
+Confirm Password: <input type="password" id="cPassWord" name="cPassWord" autocomplete="off" required />
 <input type="button"  id="btnSubmit" value="Submit"/>
 <input type="submit" id="btnBack" value="back">
 </form>

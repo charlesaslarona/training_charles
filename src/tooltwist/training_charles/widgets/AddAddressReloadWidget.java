@@ -16,29 +16,26 @@ import tooltwist.wbd.WbdStringProperty;
 import tooltwist.wbd.WbdWidget;
 import tooltwist.wbd.WbdWidgetController;
 import tooltwist.wbd.WbdProductionHelper;
-import tooltwist.ecommerce.AutomaticUrlParametersMode;
-import tooltwist.ecommerce.RoutingUIM;
-import tooltwist.training_charles.productionHelpers.NewLoginProductionHelper;
+//import tooltwist.training_charles.productionHelpers.AddAddressReloadProductionHelper;
 import com.dinaa.ui.UimData;
 import com.dinaa.ui.UimHelper;
 
 /**
- * Login form
+ * Add Address
  */
-public class NewLoginWidget extends WbdWidgetController
+public class AddAddressReloadWidget extends WbdWidgetController
 {
-	private static final String SNIPPET_PREVIEW = "newLogin_preview.html";
-	private static final String SNIPPET_DESIGN = "newLogin_design.html";
-	private static final String SNIPPET_PRODUCTION = "newLogin_production.jsp";
-	private static final boolean USE_PRODUCTION_HELPER = true;
+	private static final String SNIPPET_PREVIEW = "addAddressReload_preview.html";
+	private static final String SNIPPET_DESIGN = "addAddressReload_design.html";
+	private static final String SNIPPET_PRODUCTION = "addAddressReload_production.jsp";
+	private static final boolean USE_PRODUCTION_HELPER = false;
 
 	@Override
 	protected void init(WbdWidget instance) throws WbdException
 	{
 		instance.defineProperty(new WbdStringProperty("elementId", null, "Id", ""));
 //		instance.defineProperty(new WbdStringProperty("myProperty", null, "My Property", ""));
-		instance.defineProperty(new WbdNavPointProperty("editPage", null, "Edit Page", ""));
-		instance.defineProperty(new WbdNavPointProperty("registerPage", null, "Register Page", ""));
+//		instance.defineProperty(new WbdNavPointProperty("navpoint", null, "Navpoint", ""));
 	}
 	
 	@Override
@@ -51,8 +48,8 @@ public class NewLoginWidget extends WbdWidgetController
 			// Add code inserters for design mode
 			CodeInserter[] arr = {
 
-//				// Include a CSS snippet
-//				new StylesheetCodeInserter(instance.miscellaneousFilePath(generator, "newLogin_cssHeader.css")),
+				// Include a CSS snippet
+				new StylesheetCodeInserter(generator, instance, "addAddressReload_cssHeader.css"),
 			};
 			codeInserterList.add(arr);
 		}
@@ -66,11 +63,11 @@ public class NewLoginWidget extends WbdWidgetController
 //				// Link to an external stylesheet
 //				new StylesheetLinkInserter(cssUrl),
 
-//				// Include a javascript snippet 
-					new JavascriptCodeInserter(generator, instance, "newLogin_jsPerWidget.js"),
+				// Include a javascript snippet 
+				new JavascriptCodeInserter(generator, instance, "addAddressReload_jsHeader.js"),
 
 //				// Include a CSS snippet
-//				new StylesheetCodeInserter(instance.miscellaneousFilePath(generator, "newLogin_cssHeader.css")),
+//				new StylesheetCodeInserter(instance.miscellaneousFilePath(generator, "addAddressReload_cssHeader.css")),
 			};
 			codeInserterList.add(arr);
 		}
@@ -85,10 +82,10 @@ public class NewLoginWidget extends WbdWidgetController
 //				new StylesheetLinkInserter(cssUrl),
 					
 				// Include a javascript snippet 
-				new JavascriptCodeInserter(generator, instance, "newLogin_jsPerWidget.js"),
+				new JavascriptCodeInserter(generator, instance, "addAddressReload_jsHeader.js"),
 					
 //				// Include a CSS snippet
-//				new StylesheetCodeInserter(instance.miscellaneousFilePath(generator, "newLogin_cssHeader.css")),
+//				new StylesheetCodeInserter(instance.miscellaneousFilePath(generator, "addAddressReload_cssHeader.css")),
 
 //				// Add import statements to the JSP
 //				new PageImportCodeInserter(XData.class.getName()),
@@ -98,8 +95,8 @@ public class NewLoginWidget extends WbdWidgetController
 			if (USE_PRODUCTION_HELPER)
 			{
 				SnippetParam[] productionHelperParams = null;
-				codeInserterList.add(WbdProductionHelper.codeInserter(instance, NewLoginProductionHelper.class.getName(), productionHelperParams));
-				codeInserterList.add(new PageImportCodeInserter(NewLoginProductionHelper.class.getName()));
+//				codeInserterList.add(WbdProductionHelper.codeInserter(instance, AddAddressReloadProductionHelper.class.getName(), productionHelperParams));
+//				codeInserterList.add(new PageImportCodeInserter(AddAddressReloadProductionHelper.class.getName()));
 			}
 		}
 
@@ -108,7 +105,7 @@ public class NewLoginWidget extends WbdWidgetController
 	@Override
 	public String getLabel(WbdWidget instance) throws WbdException
 	{
-		return "LOG-IN FORM";
+		return "Add Address Reload";
 	}
 	
 	@Override
@@ -139,13 +136,9 @@ public class NewLoginWidget extends WbdWidgetController
 	
 	private SnippetParam[] getSnippetParams(WbdGenerator generator, WbdWidget instance, UimData ud) throws WbdException {
 //		String myProperty = instance.getProperty("myProperty", null);
-		String infoPage = instance.getProperty("editPage", null);
-		String signUpPage = instance.getProperty("registerPage", null);
-		infoPage = RoutingUIM.navpointUrl(ud, infoPage, AutomaticUrlParametersMode.NO_AUTOMATIC_URL_PARAMETERS);
-		signUpPage = RoutingUIM.navpointUrl(ud, signUpPage, AutomaticUrlParametersMode.NO_AUTOMATIC_URL_PARAMETERS);
+//		String myNavpoint = instance.getProperty("myNavpoint", null);
 		SnippetParam[] params = {
-			new SnippetParam("infoPage", infoPage),
-			new SnippetParam("signUpPage", signUpPage)
+//			new SnippetParam("myProperty", myProperty),
 //			new SnippetParam("myNavpoint", myNavpoint)
 		};
 		return params;

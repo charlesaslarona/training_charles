@@ -6,7 +6,7 @@ var AddressInfo = function() {
 		init: function() {
 
 			jQuery(document).ready(function(){
-				alert("address page is ready");
+				//alert("address page is ready");
 
 			});
 
@@ -23,25 +23,30 @@ var AddressInfo = function() {
 					});
 				}
 			});
-			
-			jQuery('#btnUpdate').live('click', function() {
-				var updateOp = jQuery("#updateOp").val();
-				var address = jQuery("#address").val();
-				var addressType = jQuery("#addressType option:selected").html();
-                var action = jQuery(".button-action").val();
-				
-				alert(updateOp);
-				alert(addressType);
-				alert(address);
+			jQuery(".btnUpdate").click(function() {
+			//jQuery("[id=btnUpdate]").click(function() {
+			//jQuery('#btnUpdate').live('click', function() {
+
+				 var addressId = jQuery(this).parents('tr').find('.addressId').val();
+				 var newAddressType = jQuery("option:selected", '.addressType').val();
+				 var addressType = jQuery(this).parents('tr').find('.addressType option:selected').html();
+				 var address =  jQuery(this).parents('tr').find('.addressLabel').html();
+				 var updateOp = jQuery("#updateOp").val();
+				 var personId = jQuery(this).parents('tr').find('.personId').val();
+				//alert("Address ID is: " +addressId2 + addressType + " " + address);
 				
 				jQuery.ajax({
 					url:"",
 					data: {
 						op: updateOp,
+						addressId: addressId,
 						addressType: addressType,
 						address: address,
-						action: action
-					}
+					},
+				
+				success: function(){
+					alert("Update Successful");
+				}
 				
 				
 				});
@@ -76,4 +81,6 @@ var AddressInfo = function() {
 	};
 }();
 
-jQuery(AddressInfo.init()); // Run after page loads
+jQuery(document).ready(function() {
+	AddressInfo.init();
+}); // Run after page loads

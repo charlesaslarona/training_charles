@@ -1,5 +1,7 @@
 package tooltwist.training_charles.widgets;
 
+import tooltwist.ecommerce.AutomaticUrlParametersMode;
+import tooltwist.ecommerce.RoutingUIM;
 import tooltwist.wbd.CodeInserter;
 import tooltwist.wbd.CodeInserterList;
 import tooltwist.wbd.JavascriptCodeInserter;
@@ -35,7 +37,7 @@ public class LoginPageWidget extends WbdWidgetController
 	{
 		instance.defineProperty(new WbdStringProperty("elementId", null, "Id", ""));
 //		instance.defineProperty(new WbdStringProperty("myProperty", null, "My Property", ""));
-//		instance.defineProperty(new WbdNavPointProperty("navpoint", null, "Navpoint", ""));
+		instance.defineProperty(new WbdNavPointProperty("signUp", null, "Sign Up", ""));
 	}
 	
 	@Override
@@ -136,10 +138,11 @@ public class LoginPageWidget extends WbdWidgetController
 	
 	private SnippetParam[] getSnippetParams(WbdGenerator generator, WbdWidget instance, UimData ud) throws WbdException {
 //		String myProperty = instance.getProperty("myProperty", null);
-//		String myNavpoint = instance.getProperty("myNavpoint", null);
+		String register = instance.getProperty("signUp", null);
+		register = RoutingUIM.navpointUrl(ud, register, AutomaticUrlParametersMode.NO_AUTOMATIC_URL_PARAMETERS);
 		SnippetParam[] params = {
 //			new SnippetParam("myProperty", myProperty),
-//			new SnippetParam("myNavpoint", myNavpoint)
+			new SnippetParam("register", register)
 		};
 		return params;
 	}

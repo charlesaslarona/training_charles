@@ -16,6 +16,7 @@
 <%@page import="tooltwist.misc.JspHelper"%>
 <%@page import="tooltwist.ecommerce.AutomaticUrlParametersMode"%>
 <%@page import="tooltwist.ecommerce.RoutingUIM"%>
+<%@page import="com.dinaa.data.XNodes"%>
 <%
 	// Get the production helper for this widget
 	AddressInfoProductionHelper h = (AddressInfoProductionHelper) helper;
@@ -29,25 +30,47 @@
 <input type="hidden" id="updateOp" name="updateOp" value="training_charles_widgets.addressInfo.editAddress"/>
 <table border="1">
 	<tr>
+	
+		<th>Address ID</th>
 		<th>Address</th>
 		<th>Address Type </th>
 		<th></th>
 	</tr>
+			<%
+				if(h.getAddressInfo() instanceof XData) {
+				XNodes nodes = h.getAddressInfo().getNodes("/select/address");
+				for (nodes.first(); nodes.next();) {
+			%>
+
 	
 	<tr>
-	    <td class="editable" id="address" name="address"><%=h.getAddress() %></td>
-	    <!-- <td class="cmbEditable"><%=h.getAddressType() %></td>-->
+	<td>
+	 	<input type="hidden" value="<%=nodes.getText("addressId") %>" class="addressId"/>
+		<%=nodes.getText("addressId") %>
+	</td>
+	<td>
+	<input type="hidden" value="<%=nodes.getText("address") %>" class="address">
+	<label class="editable addressLabel" ><%=nodes.getText("address") %></label>
+	</td>
 	    <td>
-	    <select name="addressType" id="addressType" >
-			<option value="0" selected><%=h.getAddressType() %></option>
-			<option value="1">Home</option>
-			<option value="2">Work</option>
-			<option value="3">Others</option>
+	    <select name="addressType" class="addressType" >
+			<option value="<%=nodes.getText("addressType") %>" selected><%=nodes.getText("addressType") %></option>
+			<option value="<%=nodes.getText("addressType") %>">Home</option>
+			<option value="<%=nodes.getText("addressType") %>">Work</option>
+			<option value="<%=nodes.getText("addressType") %>">Others</option>
 		</select>
 		</td>
 	    
-	    <td><input type="button" id="btnUpdate" name="btnUpdate" value="Update" class="button-action"></td>
+	    <td>
+	       <input type="hidden" class="personId" value="<%=nodes.getText("personId") %>" />
+	    	<input type="button" class="btnUpdate" name="<%=nodes.getText("address") %>" value="Update" >
+	    </td>
 	</tr>
+<%
+				}
+			}
+%>
+
 	
 </table>
 </form>
@@ -76,7 +99,6 @@ Address Type:
 
 
 </form>
-
 
 
 </div>

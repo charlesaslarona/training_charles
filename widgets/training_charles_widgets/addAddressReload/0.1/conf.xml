@@ -1,0 +1,6 @@
+<widget>
+  <widgetClass>tooltwist.training_charles.widgets.AddAddressReloadWidget</widgetClass>
+  <idWithinRootWidget>0</idWithinRootWidget>
+  <label>Add Address Reload</label>
+  <description>Add Address</description>
+</widget>

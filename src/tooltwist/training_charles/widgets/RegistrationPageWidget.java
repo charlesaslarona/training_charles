@@ -66,7 +66,7 @@ public class RegistrationPageWidget extends WbdWidgetController
 //				new StylesheetLinkInserter(cssUrl),
 
 //				// Include a javascript snippet 
-//				new JavascriptCodeInserter(instance.miscellaneousFilePath(generator, "registrationPage_jsHeader.js")),
+					new JavascriptCodeInserter(generator, instance, "registrationPage_jsPerWidget.js"),
 
 //				// Include a CSS snippet
 //				new StylesheetCodeInserter(instance.miscellaneousFilePath(generator, "registrationPage_cssHeader.css")),

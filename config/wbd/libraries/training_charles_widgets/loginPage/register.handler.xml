@@ -1,0 +1,4 @@
+<requestHandler>
+	<class>tooltwist.training_charles.requestHandlers.RegisterRequestHandler</class>
+	<description>Redirect To Register Page</description>
+</requestHandler>

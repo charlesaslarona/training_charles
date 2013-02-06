@@ -22,14 +22,12 @@ import com.dinaa.xpc.XpcSecurity;
 
 public class AddressInfoProductionHelper extends WbdProductionHelper
 {
-	private static String AUTO_URL_PARAMETER_NAME = "myParam";
-	private XData data = null;
-	private String myValue;
-	private String myAutoUrlParameter;
 	
+	private XData addressInfo;
 	public String addressType;
 	public String address;
 	public String personId;
+	public String addressId;
 
 	public AddressInfoProductionHelper(Properties prop)
 	{
@@ -43,21 +41,29 @@ public class AddressInfoProductionHelper extends WbdProductionHelper
 		
 		
 		HttpServletRequest request = ((JspHelper)ud).getRequest();
-		String addressId = request.getParameter("personId");
+		String addressId = request.getParameter("addressId");
 		String personId = request.getParameter("personId");
+		try {
+			Xpc xpc = ud.getXpc();
+			xpc.start("phinza.D.address", "select");
+			xpc.attrib("personId", personId);
+			this.addressInfo = xpc.run();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		Xpc xpc = ud.getXpc();
-		xpc.start("phinza.D.address", "select");
-		xpc.attrib("addressId", addressId);
-		XData data = xpc.run();
-				
-		XNodes nodes = data.getNodes("/select/address");
-		nodes.next();
+	
+		
 
-		setAddress(nodes.getText("address"));
-        setAddressType(nodes.getText("addressType"));
-        setPersonId(nodes.getText("personId"));
+//		XNodes nodes = this.addressInfo.getNodes("/select/address");
+//		nodes.next();
+//
+//		setAddress(nodes.getText("address"));
+//        setAddressType(nodes.getText("addressType"));
+//        setPersonId(nodes.getText("personId"));
 
+        
+ 
 		return null;
 	}
 	
@@ -83,6 +89,22 @@ public class AddressInfoProductionHelper extends WbdProductionHelper
 	
 	public void setAddressType(String addressType) {
 		this.addressType = addressType;
+	}
+
+	public XData getAddressInfo() {
+		return addressInfo;
+	}
+
+	public void setAddressInfo(XData addressInfo) {
+		this.addressInfo = addressInfo;
+	}
+
+	public String getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(String addressId) {
+		this.addressId = addressId;
 	}
 	
 //	private String dummyData()

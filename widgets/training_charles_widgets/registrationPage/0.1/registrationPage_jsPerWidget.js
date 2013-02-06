@@ -5,13 +5,15 @@ var RegistrationPage = function() {
 
 		init: function() {
 			jQuery("#btnSubmit").click(function(){
-				
+				alert("hello");
 				var saveOp = jQuery("#saveOp").val();
 				var firstName = jQuery("#firstName").val();
 				var lastName = jQuery("#lastName").val();
 				var middleName = jQuery("#middleName").val();
 				var userName = jQuery("#userName").val();
-				var personId =  jQuery("#personId").val();
+				var email = jQuery("#email").val();
+				var passWord = jQuery("#passWord").val();
+				var editOp =  jQuery("#editOp").val();
 				jQuery.ajax({
 					url:"",
 					data:{
@@ -20,16 +22,18 @@ var RegistrationPage = function() {
 						middleName: middleName,
 						lastName: lastName,
 						userName: userName,
-						personId: personId
+						email: email,
+						passWord: passWord
 					},
 					success:function(data){
 						console.log("data",data);
-						if (data == 'true'){
-							alert("Person data successfully saved.");
-						}
-						else {
-							alert("Username already exist!");
-						}
+						alert("User successfully created!!");
+						//if (data == 'true'){
+						//	alert("Person data successfully saved.");
+						//}
+						//else {
+						//	alert("Username already exist!");
+					//	}
 						console.log("data",data);
 						
 					}
