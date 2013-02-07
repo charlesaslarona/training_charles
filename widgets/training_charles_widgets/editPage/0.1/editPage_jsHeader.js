@@ -4,7 +4,7 @@ var EditPage = function() {
 		myVariable: null,
 
 		init: function() {
-           jQuery("#btnUpdate").click(function (){
+           jQuery("#btnEdit").click(function (){
         	   var saveOp = jQuery("#saveOp").val();
         	   var personId = jQuery("#personId").val();
         	   var userName = jQuery("#userName").val();
@@ -33,7 +33,11 @@ var EditPage = function() {
         	   });
         	  
            });
-
+           
+           var params = {personId: jQuery("#personId").val()};
+			ajaxZoneLoad_address(params);
+			ajaxZoneLoad_phone(params);
+           
 		},
 		
 		myMethod: function() {

@@ -23,6 +23,7 @@ var PersonFilter = function() {
 //				// do something
 //				...
 //			});
+			
 		},
 		
 		myMethod: function() {

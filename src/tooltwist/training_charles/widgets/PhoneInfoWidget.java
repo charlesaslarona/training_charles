@@ -16,29 +16,26 @@ import tooltwist.wbd.WbdStringProperty;
 import tooltwist.wbd.WbdWidget;
 import tooltwist.wbd.WbdWidgetController;
 import tooltwist.wbd.WbdProductionHelper;
-import tooltwist.ecommerce.AutomaticUrlParametersMode;
-import tooltwist.ecommerce.RoutingUIM;
-import tooltwist.training_charles.productionHelpers.RegistrationPageProductionHelper;
+import tooltwist.training_charles.productionHelpers.PhoneInfoProductionHelper;
 import com.dinaa.ui.UimData;
 import com.dinaa.ui.UimHelper;
 
 /**
- * Registration
+ * Phone Information
  */
-public class RegistrationPageWidget extends WbdWidgetController
+public class PhoneInfoWidget extends WbdWidgetController
 {
-	private static final String SNIPPET_PREVIEW = "registrationPage_preview.html";
-	private static final String SNIPPET_DESIGN = "registrationPage_design.html";
-	private static final String SNIPPET_PRODUCTION = "registrationPage_production.jsp";
+	private static final String SNIPPET_PREVIEW = "phoneInfo_preview.html";
+	private static final String SNIPPET_DESIGN = "phoneInfo_design.html";
+	private static final String SNIPPET_PRODUCTION = "phoneInfo_production.jsp";
 	private static final boolean USE_PRODUCTION_HELPER = true;
 
 	@Override
 	protected void init(WbdWidget instance) throws WbdException
 	{
 		instance.defineProperty(new WbdStringProperty("elementId", null, "Id", ""));
-//    	instance.defineProperty(new WbdStringProperty("backPage", null, "Back Page", ""));
-		instance.defineProperty(new WbdNavPointProperty("editPage", null, "Edit Page", ""));
-		instance.defineProperty(new WbdNavPointProperty("backPage", null, "Back Page", ""));
+//		instance.defineProperty(new WbdStringProperty("myProperty", null, "My Property", ""));
+//		instance.defineProperty(new WbdNavPointProperty("navpoint", null, "Navpoint", ""));
 	}
 	
 	@Override
@@ -51,8 +48,8 @@ public class RegistrationPageWidget extends WbdWidgetController
 			// Add code inserters for design mode
 			CodeInserter[] arr = {
 
-//				// Include a CSS snippet
-//				new StylesheetCodeInserter(instance.miscellaneousFilePath(generator, "registrationPage_cssHeader.css")),
+				// Include a CSS snippet
+				new StylesheetCodeInserter(generator, instance, "phoneInfo_cssHeader.css"),
 			};
 			codeInserterList.add(arr);
 		}
@@ -66,11 +63,11 @@ public class RegistrationPageWidget extends WbdWidgetController
 //				// Link to an external stylesheet
 //				new StylesheetLinkInserter(cssUrl),
 
-//				// Include a javascript snippet 
-					new JavascriptCodeInserter(generator, instance, "registrationPage_jsPerWidget.js"),
+				// Include a javascript snippet 
+				new JavascriptCodeInserter(generator, instance, "phoneInfo_jsHeader.js"),
 
 //				// Include a CSS snippet
-//				new StylesheetCodeInserter(instance.miscellaneousFilePath(generator, "registrationPage_cssHeader.css")),
+//				new StylesheetCodeInserter(instance.miscellaneousFilePath(generator, "phoneInfo_cssHeader.css")),
 			};
 			codeInserterList.add(arr);
 		}
@@ -84,11 +81,11 @@ public class RegistrationPageWidget extends WbdWidgetController
 //				// Link to an external stylesheet
 //				new StylesheetLinkInserter(cssUrl),
 					
-//				// Include a javascript snippet 
-				new JavascriptCodeInserter(generator, instance, "registrationPage_jsPerWidget.js"),
+				// Include a javascript snippet 
+				new JavascriptCodeInserter(generator, instance, "phoneInfo_jsHeader.js"),
 					
 //				// Include a CSS snippet
-//				new StylesheetCodeInserter(instance.miscellaneousFilePath(generator, "registrationPage_cssHeader.css")),
+//				new StylesheetCodeInserter(instance.miscellaneousFilePath(generator, "phoneInfo_cssHeader.css")),
 
 //				// Add import statements to the JSP
 //				new PageImportCodeInserter(XData.class.getName()),
@@ -98,8 +95,8 @@ public class RegistrationPageWidget extends WbdWidgetController
 			if (USE_PRODUCTION_HELPER)
 			{
 				SnippetParam[] productionHelperParams = null;
-				codeInserterList.add(WbdProductionHelper.codeInserter(instance, RegistrationPageProductionHelper.class.getName(), productionHelperParams));
-				codeInserterList.add(new PageImportCodeInserter(RegistrationPageProductionHelper.class.getName()));
+				codeInserterList.add(WbdProductionHelper.codeInserter(instance, PhoneInfoProductionHelper.class.getName(), productionHelperParams));
+				codeInserterList.add(new PageImportCodeInserter(PhoneInfoProductionHelper.class.getName()));
 			}
 		}
 
@@ -108,7 +105,7 @@ public class RegistrationPageWidget extends WbdWidgetController
 	@Override
 	public String getLabel(WbdWidget instance) throws WbdException
 	{
-		return "Registration";
+		return "Phone Information";
 	}
 	
 	@Override
@@ -139,13 +136,9 @@ public class RegistrationPageWidget extends WbdWidgetController
 	
 	private SnippetParam[] getSnippetParams(WbdGenerator generator, WbdWidget instance, UimData ud) throws WbdException {
 //		String myProperty = instance.getProperty("myProperty", null);
-		String infoPage = instance.getProperty("editPage", null);
-		String previousPage = instance.getProperty("backPage", null);
-		previousPage = RoutingUIM.navpointUrl(ud, previousPage, AutomaticUrlParametersMode.NO_AUTOMATIC_URL_PARAMETERS);
-		infoPage = RoutingUIM.navpointUrl(ud, infoPage, AutomaticUrlParametersMode.NO_AUTOMATIC_URL_PARAMETERS);
+//		String myNavpoint = instance.getProperty("myNavpoint", null);
 		SnippetParam[] params = {
-			new SnippetParam("infoPage", infoPage),
-			new SnippetParam("previousPage", previousPage),
+//			new SnippetParam("myProperty", myProperty),
 //			new SnippetParam("myNavpoint", myNavpoint)
 		};
 		return params;

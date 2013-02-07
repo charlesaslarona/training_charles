@@ -4,16 +4,47 @@ var RegistrationPage = function() {
 		myVariable: null,
 
 		init: function() {
+
+
+			
+			
+			
 			jQuery("#btnSubmit").click(function(){
-				alert("hello");
-				var saveOp = jQuery("#saveOp").val();
-				var firstName = jQuery("#firstName").val();
-				var lastName = jQuery("#lastName").val();
-				var middleName = jQuery("#middleName").val();
-				var userName = jQuery("#userName").val();
-				var email = jQuery("#email").val();
-				var passWord = jQuery("#passWord").val();
-				var editOp =  jQuery("#editOp").val();
+				//jQuery("#regForm").submit();
+
+				validateLogin();
+				});
+			
+			function validateLogin() {
+				   if (document.getElementById("firstName").value === "" ||
+						document.getElementById("lastName").value === "" ||
+						document.getElementById("middleName").value === "" ||
+						document.getElementById("email").value === "" ||
+						document.getElementById("passWord").value === "" ||
+						document.getElementById("userName").value === "" ||
+						document.getElementById("cPassWord").value === "")
+				{	   
+					   alert("All Fields Are Required");
+				}
+				   else {
+				 		if (document.getElementById("passWord").value != document.getElementById("cPassWord").value) {
+				 			alert("Password must match the confirm password");
+				 		}
+				 		else {
+				 			process();
+				 		}
+				   }
+			};
+				function process(){
+					var saveOp = jQuery("#saveOp").val();
+					var firstName = jQuery("#firstName").val();
+					var lastName = jQuery("#lastName").val();
+					var middleName = jQuery("#middleName").val();
+					var userName = jQuery("#userName").val();
+					var email = jQuery("#email").val();
+					var passWord = jQuery("#passWord").val();
+					var editPage =  jQuery("#editOp").val();
+					var cPass = jQuery("#cPassWord").val();
 				jQuery.ajax({
 					url:"",
 					data:{
@@ -28,6 +59,7 @@ var RegistrationPage = function() {
 					success:function(data){
 						console.log("data",data);
 						alert("User successfully created!!");
+						redirectPage(editPage);
 						//if (data == 'true'){
 						//	alert("Person data successfully saved.");
 						//}
@@ -37,9 +69,14 @@ var RegistrationPage = function() {
 						console.log("data",data);
 						
 					}
-				});
+
 				
 			});
+				};
+			function redirectPage(editPage)
+			{
+				window.location.href = editPage;
+			}
 //				...
 //			});
 		},

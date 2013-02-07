@@ -46,6 +46,7 @@ var AddressInfo = function() {
 				
 				success: function(){
 					alert("Update Successful");
+					
 				}
 				
 				
@@ -68,10 +69,16 @@ var AddressInfo = function() {
 						personId: personId,
 						addressTypeAdd: addressTypeAdd,
 						addressAdd: addressAdd
-					}
+					},
+				success: function(data){
+					//AJAX ZONE CALL
+					alert("new address has been inserted");
+					var params = {personId: personId};
+					ajaxZoneLoad_address(params);
+				}
 				});
 			});
-
+			
 		},
 		
 		myMethod: function() {

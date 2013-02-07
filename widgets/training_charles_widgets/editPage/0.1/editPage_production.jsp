@@ -24,10 +24,10 @@
 
 <!-- ********** INSERT HTML HERE ********** -->
 <div %%idDefinition%% class="EditPage">
- <form method="POST" action="">
+ <form method="POST" action="" style="margin: 0px auto;">
 	<input type="hidden" name="backNavPoint" value="%%previousPage%%">
 	<input type="hidden" name="op" value="training_charles_widgets.editPage.previous">
-	<input type="hidden" id="saveOp" name="saveOp" value="op=training_charles_widgets.addressInfo.editAddress">
+	<input type="hidden" id="saveOp" name="saveOp" value="training_charles_widgets.editPage.update">
 <table border="1">
 <tr>
 	<td>User ID:</td>
@@ -71,7 +71,7 @@
 
 
 <tr>
-    <td colspan="2"><input type="button" id="btnUpdate" name="btnUpdate" value="Update" /> &nbsp;
+    <td colspan="2"><input type="button" id="btnEdit" name="btnEdit" value="Update" /> &nbsp;
     
 
 	<input type="submit" id="btnBack" name="back" value="Back To List Page" /></td>

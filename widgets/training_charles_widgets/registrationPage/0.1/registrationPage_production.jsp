@@ -26,15 +26,16 @@
 <!-- ********** INSERT HTML HERE ********** -->
 <div %%idDefinition%% class="RegistrationPage">
 <form method="POST">
+<input type="hidden" name="editOp" id="editOp" value=%%infoPage%% />
 <input type="hidden" name="backNavPoint" value="%%previousPage%%">
 <input type="hidden" name="op" value="training_charles_widgets.registrationPage.back">
 <input type="hidden" name = "saveOp" id="saveOp" value="training_charles_widgets.registrationPage.save">
-First Name: <input type="text" id="firstName"  name="firstName" autocomplete="off" required/><br>
+First Name: <input type="text" id="firstName"  value="" name="firstName" autocomplete="off" required/><br>
 Middle Name: <input type="text" id="middleName"  name="middleName" autocomplete="off" required/><br>
 Last Name:  <input type="text" id="lastName" name="lastName" autocomplete="off" required/><br>
 Email: <input type="email" id="email" name="email" autocomplete="off" required/> <br>
-User Name: <input type="text" id="userName" value=""  name="userName" autocomplete="off" required/><br>
-Password: <input type="password" id="passWord" value="" name="passWord" autocomplete="off"/> <br>
+User Name: <input type="text" id="userName" name="userName" autocomplete="off" required/><br>
+Password: <input type="password" id="passWord" name="passWord" autocomplete="off"/> <br>
 Confirm Password: <input type="password" id="cPassWord" name="cPassWord" autocomplete="off" required />
 <input type="button"  id="btnSubmit" value="Submit"/>
 <input type="submit" id="btnBack" value="back">

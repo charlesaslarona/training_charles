@@ -1,0 +1,6 @@
+<widget>
+  <widgetClass>tooltwist.training_charles.widgets.PhoneInfoWidget</widgetClass>
+  <idWithinRootWidget>0</idWithinRootWidget>
+  <label>Phone Information</label>
+  <description>Phone Information</description>
+</widget>
