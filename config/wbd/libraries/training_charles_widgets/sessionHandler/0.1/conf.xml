@@ -1,0 +1,6 @@
+<widget>
+  <widgetClass>tooltwist.training_charles.widgets.SessionHandlerWidget</widgetClass>
+  <idWithinRootWidget>0</idWithinRootWidget>
+  <label>Session Validator</label>
+  <description>Session Checker</description>
+</widget>

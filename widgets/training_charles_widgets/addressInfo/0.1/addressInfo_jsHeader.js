@@ -54,6 +54,28 @@ var AddressInfo = function() {
 			});
 			
 			
+			jQuery(".btnDelete").click(function(){
+				var personId = jQuery(".personId").val();
+				var addressId = jQuery(this).parents('tr').find('.addressId').val();
+				var removeOp = jQuery("#removeOp").val();
+				var deleteConfirmed = confirm("Do you want to delete this record?");
+				if (deleteConfirmed) {
+					jQuery.ajax({
+						url: "",
+						data: {
+						op: removeOp,
+						addressId: addressId
+						},
+					success: function(data){
+						alert("Address record was deleted ");
+						var params = {personId:personId};
+						ajaxZoneLoad_address(params);
+					}
+				});
+				}
+				
+			});
+			
 			jQuery('#btnAdd').click(function(){
 				var personId = jQuery("#personId").val();
 				var addressAdd = jQuery("#addressAdd").val();

@@ -61,12 +61,12 @@
 
 <tr>
 	<td>New Password:</td>
-    <td><input type="text" id="password" name="password" value=""></td>
+    <td><input type="password" id="password" name="password"></td>
 </tr>
 
 <tr>
 	<td>Re-Type New Password:</td>
-    <td><input type="text" id="password" name="password" value=""></td>
+    <td><input type="password" id="cPassword" name="cPassword"s></td>
 </tr>
 
 

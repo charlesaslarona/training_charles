@@ -12,7 +12,15 @@ var EditPage = function() {
         	   var middleName = jQuery("#middleName").val();
         	   var lastName = jQuery("#lastName").val();
         	   var email = jQuery("#email").val();
+        	   var cPassword = jQuery("#cPassword").val();
+        	   var password = jQuery("#password").val();
         	   
+        	   if (document.getElementById("password").value != document.getElementById("cPassword").value){
+        		   alert("Password must match with the confirm password");
+        		   
+        	   }
+        	   
+        	   else {
         	   jQuery.ajax({
         		   url:"",
         		   data: {
@@ -22,7 +30,8 @@ var EditPage = function() {
         			   firstName: firstName,
         			   lastName: lastName,
         			   middleName: middleName,
-        			   email: email
+        			   email: email,
+        			   password: password
         			    },
         			    
 				success:function(data){
@@ -31,12 +40,13 @@ var EditPage = function() {
 					
 				}
         	   });
-        	  
+        	   }
            });
            
            var params = {personId: jQuery("#personId").val()};
-			ajaxZoneLoad_address(params);
 			ajaxZoneLoad_phone(params);
+			ajaxZoneLoad_address(params);
+
            
 		},
 		

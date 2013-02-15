@@ -1,0 +1,6 @@
+<widget>
+  <widgetClass>tooltwist.training_charles.widgets.WeatherWidget</widgetClass>
+  <idWithinRootWidget>0</idWithinRootWidget>
+  <label>Weather Information</label>
+  <description>Weather Information</description>
+</widget>

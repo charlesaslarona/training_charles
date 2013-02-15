@@ -28,6 +28,7 @@
 <div %%idDefinition%% class="PhoneInfo">
 <form method="POST" action="" value="update">
 <input type="hidden" id="editPhoneOp" name="editPhoneOp" value="training_charles_widgets.phoneInfo.editPhone"/>
+<input type="hidden" id="removePhoneOp" name="removePhoneOp" value="training_charles_widgets.phoneInfo.deletePhone"/>
 <table border="1">
 	<tr>
 	
@@ -64,6 +65,11 @@
 	    <td>
 	       <input type="hidden" class="personId" value="<%=nodes.getText("personId") %>" />
 	    	<input type="button" class="btnEditPhone" name="<%=nodes.getText("phoneNumber") %>" value="Update" >
+	    </td>
+	    
+	    <td>
+	    	<input type="button" class="btnRemovePhone" id="btnRemovePhone" name="btnRemovePhone" value="Remove" />
+	    	
 	    </td>
 	</tr>
 <%

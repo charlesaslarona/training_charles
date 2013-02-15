@@ -37,8 +37,10 @@ public class LoginRequestHandler extends WbdRequestHandler
        String pWord = request.getParameter("pWord");
        boolean isCredentialsValid = isCredentialsValid(uh, uName, pWord);
        
-      if (isCredentialsValid)
+      if (isCredentialsValid) {
         uh.reply("true");
+        request.getSession().setAttribute("isLoggedIn", true);
+      }
       else
     	  uh.reply("false");
        //validate credentials 

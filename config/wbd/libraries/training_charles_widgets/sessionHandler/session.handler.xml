@@ -1,0 +1,4 @@
+<requestHandler>
+	<class>tooltwist.training_charles.requestHandlers.SessionRequestHandler</class>
+	<description>Session Request Handler</description>
+</requestHandler>

@@ -1,0 +1,4 @@
+<requestHandler>
+	<class>tooltwist.training_charles.requestHandlers.LocationRequestHandler</class>
+	<description>Location Request Handler</description>
+</requestHandler>

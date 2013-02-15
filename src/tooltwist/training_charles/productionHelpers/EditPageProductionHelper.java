@@ -49,6 +49,9 @@ public class EditPageProductionHelper extends WbdProductionHelper
 		HttpServletRequest request = ((JspHelper)ud).getRequest();
 		String personId = request.getParameter("personId");
 		
+		Object isLoggedIn = request.getSession().getAttribute("isLoggedIn");
+		System.out.println("isLoggedIn:" + isLoggedIn);
+		
 		Xpc xpc = ud.getXpc();
 		xpc.start("phinza.D.person", "select");
 		xpc.attrib("personId", personId);

@@ -70,6 +70,18 @@ var PhoneInfo = function() {
 				});
 				
 			});
+			
+			
+			jQuery(".btnRemovePhone").click(function(){
+				var phoneId = jQuery(this).parents('tr').find('.phoneId').val();
+				var personId = jQuery("#personId").val();
+				var isRemoveConfirmed = confirm("Are you sure you want to delete this phone record?");
+				var removePhoneOp = jQuery("#removePhoneOp").val();
+				
+				if (isRemoveConfirmed){
+					alert (personId +" " + phoneId + " " + removePhoneOp);
+				}
+			});
 
 //			// attach an event to an HTML element
 //			var self = this;

@@ -28,6 +28,7 @@
 
 <form method="POST" action="" value="update">
 <input type="hidden" id="updateOp" name="updateOp" value="training_charles_widgets.addressInfo.editAddress"/>
+ <input type="hidden" class="removeOp" id="removeOp" value="training_charles_widgets.addressInfo.deleteAddress"/>
 <table border="1">
 	<tr>
 	
@@ -64,6 +65,11 @@
 	    <td>
 	       <input type="hidden" class="personId" value="<%=nodes.getText("personId") %>" />
 	    	<input type="button" class="btnUpdate" name="<%=nodes.getText("address") %>" value="Update" >
+	    </td>
+	    
+	    <td>
+
+	    	<input type="button" class="btnDelete" value="Remove"/>
 	    </td>
 	</tr>
 <%

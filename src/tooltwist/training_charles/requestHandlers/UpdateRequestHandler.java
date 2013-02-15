@@ -39,7 +39,7 @@ public class UpdateRequestHandler extends WbdRequestHandler
 		String middleName = request.getParameter("middleName");
 		String lastName = request.getParameter("lastName");
 		String email = request.getParameter("email");
-		String password = request.getParameter("passWord");
+		String password = request.getParameter("password");
 		
 		try {
 			Xpc xpc = uh.getXpc();
